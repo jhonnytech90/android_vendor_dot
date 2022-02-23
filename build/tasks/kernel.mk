@@ -165,9 +165,6 @@ else
         $(warning **********************************************************)
         $(error "NO KERNEL CONFIG")
     else
-       ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LINEAGE_BUILDTYPE)),)
-            $(error "PREBUILT KERNEL IS NOT ALLOWED ON OFFICIAL BUILDS!")
-        else
             ifneq ($(TARGET_FORCE_PREBUILT_KERNEL),)
                 $(warning **********************************************************)
                 $(warning * Kernel source found and configuration was defined,     *)
@@ -185,7 +182,6 @@ else
                 FULL_KERNEL_BUILD := true
                 KERNEL_BIN := $(TARGET_PREBUILT_INT_KERNEL)
             endif
-        endif
     endif
 endif
 
